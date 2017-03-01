@@ -1,0 +1,130 @@
+<!doctype html>
+<html ng-app="apodApp">
+
+	<head>
+		<!-- Charset -->
+		<meta charset="ISO-8859-1">
+
+		<!-- Responsive : http://www.w3schools.com/css/css_rwd_viewport.asp -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+		<!-- Title -->
+		<title>APOD eXplorer</title>
+
+		<!-- Style sheet -->
+		<link href="style/style.css" rel="stylesheet" />
+
+		<!-- AngularJS library -->
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+
+		<!-- Linkurious (Sigma.js) source -->
+		<script src="script/linkurious.js/src/sigma.core.js"></script>
+		<script src="script/linkurious.js/src/conrad.js"></script>
+		<script src="script/linkurious.js/src/utils/sigma.utils.js"></script>
+		<script src="script/linkurious.js/src/utils/sigma.polyfills.js"></script>
+		<script src="script/linkurious.js/src/sigma.settings.js"></script>
+		<script src="script/linkurious.js/src/classes/sigma.classes.dispatcher.js"></script>
+		<script src="script/linkurious.js/src/classes/sigma.classes.configurable.js"></script>
+		<script src="script/linkurious.js/src/classes/sigma.classes.graph.js"></script>
+		<script src="script/linkurious.js/src/classes/sigma.classes.camera.js"></script>
+		<script src="script/linkurious.js/src/classes/sigma.classes.quad.js"></script>
+		<script src="script/linkurious.js/src/captors/sigma.captors.mouse.js"></script>
+		<script src="script/linkurious.js/src/captors/sigma.captors.touch.js"></script>
+
+		<!-- Script -->
+		<script src="script/apodController.js"></script>
+
+		<!-- Services files -->
+		<script src="script/importer.js"></script>
+		<script src="script/neighbourhood.js"></script>
+	</head>
+
+
+
+	<body ng-controller="apodController">
+
+		<!-- Splash screen -->
+		<div id="splashscreen">
+			<div id="splashscreen_whole">
+				<h2 id="splashscreen_text"> Welcome to the APOD eXplorer</h2>
+				<img id="splashscreen_image" src="images/APoD_eXplorer_small.png" /> <br/>
+				<button id="splashscreen_button" ng-click="splashscreenOnClick()">Begin the exploration</button>
+			</div>
+		</div>
+	
+	
+
+
+		<div id="wholePanel">
+			<!-- Today picture panel -->
+			<div id="todayPanel">
+				<div id="todayContainer">
+					<div id="todayImageContainer">
+						<a id="todayImageLink" href="" target="_blank">
+							<img id="todayImage" src="" />
+						</a>
+						<p id="todayCredits">Credits</p>
+					</div>
+					<div id="todayInfosContainer">	
+						<h3 id="todayDate">Date</h3>
+						<h2 id="todayTitle">Title</h2>
+					</div>	
+				</div>
+				<br/>
+				<div id="todayExplanation"><b> Explanation </b> </div>
+			</div>	
+
+
+			<!-- Recommandation panel -->
+			<div id="recommandationPanel">
+				<div id="tabView">
+					<!-- Same width tabs : http://jsfiddle.net/csswizardry/zfSt4/ -->
+					<div id="tabs">
+						<span id="recoTab" class="tab selectedTab" ng-click="changeTab(&quot;recoTab&quot;)">
+							<img class="logo_links" src="./images/recommendation_red.png" title="Recommendations" />
+						</span>
+						<span style="display:none;" id="edgeTab" class="tab nonSelectedTab" ng-click="changeTab(&quot;edgeTab&quot;)">Edge</span>
+						<span style="display:none;" id="textTab" class="tab nonSelectedTab" ng-click="changeTab(&quot;textTab&quot;)">Text</span>
+						<span style="display:none;" id="logTab" class="tab nonSelectedTab" ng-click="changeTab(&quot;logTab&quot;)">
+							<img class="logo_links" src="./images/log_red.png" title="Log" />
+						</span>
+						<span id="helpTab" class="tab nonSelectedTab" >
+							<img class="logo_links" src="./images/help_red.png" title="Help" ng-click="help()" />
+						</span>
+					</div>
+					<div id="tabsContent">
+						<div id="recoTabContent" class="tabContent SelectedContent">
+						</div>
+						<div id="edgeTabContent" class="tabContent nonSelectedContent">
+							<h1>Tab Edge</h1>
+							<img id="edgeReco0"class="recommandationImage" /> <br/>
+							<img id="edgeReco1"class="recommandationImage" /> <br/>
+							<img id="edgeReco2"class="recommandationImage" /> <br/>
+							<img id="edgeReco3"class="recommandationImage" /> <br/>
+							<img id="edgeReco4"class="recommandationImage" /> <br/>
+						</div>
+						<div id="textTabContent" class="tabContent nonSelectedContent">
+							<h1>Tab Text</h1>
+							<img id="textReco0"class="recommandationImage" /> <br/>
+							<img id="textReco1"class="recommandationImage" /> <br/>
+							<img id="textReco2"class="recommandationImage" /> <br/>
+							<img id="textReco3"class="recommandationImage" /> <br/>
+							<img id="textReco4"class="recommandationImage" /> <br/>
+						</div>
+						<div id="logTabContent" class="tabContent nonSelectedContent">
+							<h1>Tab Log</h1>
+							<p>Empty logfile</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="links">
+				<a id="today_link" href=""><img class="logo_links" src="./images/today_red.png" title="Today" /></a> 
+				<a href="./timeline.html" target="_blank"><img class="logo_links" src="./images/timeline_red.png" title="Archive - Timeline" /></a>
+				<a href="./graph.html" target="_blank"><img class="logo_links" src="./images/graph_red.png" title="Archive - Graph" /></a>
+			</div>
+		</div>
+	</body>
+
+</html>

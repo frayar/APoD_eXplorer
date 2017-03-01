@@ -1,0 +1,283 @@
+/* Properties of the entire application */
+body
+{
+	height: 100%;
+	margin:auto;
+	background-color: #f1f1f1;
+}
+
+#splashscreen
+{
+	position:absolute;
+	top:0;
+	left:0;
+    text-align: center;
+    width:100vw;
+    height:100vh;
+    background-color:white;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+}
+
+#splashscreen_whole
+{
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+#splashscreen_image
+{
+	height:50vh;
+	margin-bottom: 20px;
+}
+
+#splashscreen_text
+{
+	font-family: 'PT Sans Narrow',sans-serif;
+	font-weight: normal;
+	/*text-transform: uppercase;*/
+	color: #000000;	
+}
+
+#splashscreen_button
+{
+	font-family: 'PT Sans Narrow',sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	color: black;
+	background-color: #D80027;
+    border: none;
+    padding: 15px 32px;
+}
+
+#helpButton
+{
+	float: right;
+	margin-right: 13px;
+}
+
+#wholePanel
+{
+	width:80%;
+	height:95vh;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#todayPanel
+{
+	float: left;
+	width: 75%;
+	height: 100%;
+	border: 0px solid black;
+	margin-top:25px;
+	background-color: #ffffff;
+}
+
+#todayContainer
+{
+	border: 0px solid black;
+	height: auto;
+	overflow: hidden;
+}
+
+#todayImageContainer
+{
+	width: 49%;
+	padding: 5px;
+	border: 0px solid black;
+	display:inline-block;
+	vertical-align: middle;
+}
+
+#todayImage
+{
+	display: block;
+    width: 100%; 
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#todayCredits
+{
+	text-align: center;
+	font-family: 'PT Serif',serif;
+	font-size: 12px;
+	padding-top: 1px;
+	margin-top: 5px;
+	margin-bottom: 0px;
+}
+
+#todayInfosContainer
+{
+	width: 48%;
+	margin-top: auto;
+	margin-bottom: auto;
+	max-width: 50%;
+	min-width: 120px;
+	border: 0px solid black;
+	display:inline-block;
+	vertical-align: middle;
+}
+
+#todayDate
+{
+	font-family: 'PT Sans Narrow',sans-serif !important;
+	font-weight: normal !important;
+	text-transform: uppercase !important;
+	font-size: 15px;
+	color: #b3b3b3;
+	margin: 0 0 3px;
+	border: 0px solid black;
+	text-align: center;
+}
+
+#todayTitle
+{
+	font-family: 'PT Sans Narrow',sans-serif;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 46px;
+	line-height: 46px;
+	max-width: 100%;
+	color: #000;
+	margin: 0 0 0 0px;
+	border: 0px solid black;
+	text-align: center;
+
+}
+
+#todayExplanation
+{
+	font-family: 'PT Serif',serif;
+	font-size: 16px;
+	line-height: 1.3em;
+	color: #737373;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	padding: 5px;
+	text-align: left;
+	border: 0px solid black;
+}
+
+#recommandationPanel
+{
+	margin-top:25px;
+	float: right;
+	width: 24%;
+	height: 91%;
+	border: 0px solid black;
+	background-color: #ffffff;
+	overflow-y: auto;
+}
+
+#links
+{
+	float: right;
+	width: 24%;
+	height: 8%;
+	border: 0px solid black;
+	background-color: #ffffff;
+	text-align:center;
+	vertical-align: middle;
+}
+
+#links a
+{
+	display:inline-block;
+	height: 50px;
+	width: 30%;
+	text-align: center;
+	line-height: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+}
+
+.logo_links
+{
+	height: 95%;
+	width:auto;
+}
+
+.tab
+{
+	display: inline-block;
+	background-color: #ffffff;
+	border: 0px solid black;
+	cursor: pointer;
+	width: 48%;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	font-family: 'PT Sans Narrow',sans-serif;
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+}
+
+.nonSelectedTab
+{
+	background: #ffffff;
+	border-bottom: 1px #D80027 solid;
+
+}
+
+.selectedTab
+{
+	background: #ffffff;
+	border-bottom: 0px #D80027 solid;
+
+}
+
+.tabContent
+{
+	background-color: #ffffff;
+	border: 0px solid black;
+	margin-top: -1px;
+	padding: 20px 5px 5px 5px ;
+}
+
+.selectedContent
+{
+	display: block;
+}
+
+.nonSelectedContent
+{
+	display: none;
+}
+
+.recommandation
+{
+	display: inline-block;
+	border: 0px solid black;
+	margin: 3px;
+}
+
+.recommandationImage
+{
+	float: left;
+	vertical-align: center;
+    width: 50%; 
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.recommandationDate
+{
+	font-family: 'PT Sans Narrow',sans-serif;
+	margin-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 14px
+}
+
+.recommandationTitle
+{
+	font-family: 'PT Sans Narrow',sans-serif;
+	margin: 0px 0px 0px 10px;
+	font-size: 13px
+}

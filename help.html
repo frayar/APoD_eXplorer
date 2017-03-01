@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		
+		<!-- Title -->
+		<title>APoD eXplorer - Help</title>
+		
+		<!-- Style sheet -->
+		<link href="style/help.css" rel="stylesheet" />
+	</head>
+	<body>
+
+		<!-- Title -->
+		<h1>APoD eXplorer</h1>
+		<h1>Help</h1>
+		
+		<!-- Menu -->
+		<nav>
+		  <ul>
+			<li><a href="#ancre1">Interface Overview</a></li>
+			<li><a href="#ancre2">Recommendation System</a></li>
+			<li><a href="#ancre3">Timeline</a></li>
+			<li><a href="#ancre4">Graph Exploration</a></li>
+			<li><a href="#ancre5">About</a></li>
+		  </ul>
+		</nav>
+		
+		<div class="section">
+			<h2 id="ancre1">Interface overview</h2>
+			<p>The main page of APoD eXplorer display the recomendation system. See <a href="help.html#ancre2">below</a> for further details.<p>
+			<p> From the main interface, several links are available:
+			<table>
+				<tr>
+					<td> <img class="button" src="images/help_red.png" alt="Help button" /> </td>
+					<td> Open the current help page.</td>
+				</tr>
+				<tr>
+					<td> <img class="button-left" src="images/today_red.png" alt="Today button" /> </td>
+					<td> Go back to "today". Currently, only an offline scenario is implemented, thus "today" correspond to the last day processed: <i>2015-10-27</i>.</td>
+				</tr>
+				<tr>
+					<td> <img class="button-left" src="images/timeline_red.png" alt="Timeline button" /> </td>
+					<td> Open the archive exploration using timelines. See <a href="help.html#ancre3">below</a> for further details.<p>  </td>
+				</tr>
+				<tr>
+					<td> <img class="button" src="images/graph_red.png" alt="Graph button" /></td>
+					<td> Open the archive exploration using an hybrid hierarchical and graph structure. See <a href="help.html#ancre4">below</a> for further details.<p> </td>
+				</tr>				
+			</table>
+		</div>
+
+		<div class="section">
+			<h2 id="ancre2">Recommendation System <span><a href="help.html">&#x25B2;</a></span></h2>
+			<img class="centerImage reduceImage_50" src="images/help/apod.png" alt="Recomendation System interface"></img>
+			<p>The recommendation system display the day of interest information (image, title, date, explanation) extracted from the <a href="http://apod.nasa.gov" target="_blank">official NASA APOD website</a>.</p>
+			<p>One can click on the image to open it in a larger resolution.</p>
+			<p>On the right panel, some recommendations are provided by our system. They correspond to similar images in terms of color. </p>
+			<p>A left-click on the recommendation thumbnail open it as the day of interest. Thus, one can navigate in the collection using this recommendations.</p>
+		</div>
+
+		<div class="section">
+			<h2 id="ancre3">Timeline <span><a href="help.html">&#x25B2;</a></span></h2>
+			<img class="centerImage reduceImage_50" src="images/help/timeline.png" alt="Timeline exploration interface"></img>
+			<p>Timeline is a common visualisation for timestamped data. As most users are familiar with such visualisations, APoD eXplorer provided them.</p>
+			<p>The archive has been segmented by year to allow a more smooth navigation. </p>
+			<p>One can select a year on the left panel to display the associated timeline. </p>
+			<p> The <a href="https://timeline.knightlab.com/" target="_blank">Timeline JS</a> library has been used here.</p>
+		</div>
+		
+		<div class="section">
+			<h2 id="ancre4">Graph Exploration <span><a href="help.html">&#x25B2;</a></span></h2>
+			<img class="centerImage reduceImage_50" src="images/help/graph.png" alt="Neighbours navigation"></img>
+			<p>In order to navigate within large collection efficiently, it has been structured in a hybrid hierarchical and graph structure.</p>
+			<p>Please see, the dedicated <a href="./graph_help.html" target="_blank">graph exploration help page</a> for a thorough description.</p>
+			<p> The <a href="http://linkurio.us/" target="_blank">Linkurious</a> library has been used here.</p>
+		</div>
+
+		<div class="section">
+			<h2 id="ancre5">About <span><a href="help.html">&#x25B2;</a></span></h2>
+			<div id="logos">
+				<a href="http://www.univ-tours.fr/" target="_blank"><img class="logo" src="images/help/logoUnivTours.jpg" alt="Tours university logo"/></a>
+				<a href="http://li.univ-tours.fr/" target="_blank"><img class="logo" src="images/help/logo_LI.jpg" alt="Computer Science lab logo"/></a>
+				<a href="http://www.rfai.li.univ-tours.fr/" target="_blank"><img class="logo" src="images/help/logo_RFAI.jpg" alt="RFAI team logo"/></a>
+			</div>
+			<p>The APoD eXplorer platform has been developed by <a href="http://frederic.rayar.free.fr/" target="_blank">Fr&eacute;d&eacute;ric RAYAR</a> in the context of his PhD. <a href="mailto:frederic.rayar@univ-tours.fr">(frederic.rayar {at} univ-tours {dot} fr)</a></p>
+			<p>The PhD takes place in the Computer Science Laboratory of Tours (University Fran&ccedil;ois-Rabelais of Tours), under the supervision of Dr. Sabine Barrat, Dr. Fatma Bouali and Pr. Gilles Venturini.</p>
+			<p>The PhD endeavour work focus on jointly study the indexing and the visualisation for browsing large dynamic image collections, under the following constraints:
+				<ul>
+					<li><i>handling medium to large image collections</i>: the challenge is to handle real world data sets that can contains thousands to millions of images;</li>
+					<li><i>handling dynamic image collections: as images keep</i> flooding in a continuous way, it becomes mandatory to build structure in a dynamic way: images shall be either added or edited if needed;</li>
+					<li><i>providing interactive visualisations</i>: relevant visualisations - that are easy to interpret by the user - must be combined to interactions to allow the user to wander around the collection and make discoveries</li>
+				</ul>	
+		</div>
+	</body>
+</html>

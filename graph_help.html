@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		
+		<!-- Title -->
+		<title>APoD eXplorer - Archive Graph Exploration Help</title>
+		
+		<!-- Style sheet -->
+		<link href="style/help.css" rel="stylesheet" />
+	</head>
+	<body>
+
+		<!-- Title -->
+		<h1>APoD eXplorer</h1>
+		<h1>Archive Graph Exploration: Help</h1>
+		
+		<!-- Menu -->
+		<nav>
+		  <ul>
+
+			<li><a href="#ancre1">Interface Overview</a></li>
+			<li><a href="#ancre2">Graph Manipulation</a></li>
+			<li><a href="#ancre3">Graph Controls</a></li>
+			<li><a href="#ancre4">Collection Navigation</a></li>
+			<li><a href="#ancre5">Multi-level Exploration</a></li>
+			<li><a href="#ancre6">About</a></li>
+		  </ul>
+		</nav>
+		
+		<div class="section">
+			<h2 id="ancre1">Interface overview</h2>
+			<img class="centerImage reduceImage_50" src="images/help/interface.png" alt="Interface of the graph visualisation"></img>
+			<ol> 
+				<li>Graph canvas</li>
+				<li>Graph manipulation general controls</li>
+				<li>Current flew over node image (or first representative) thumbnail</li>
+				<li>Current flew over or selected node information panel</li>
+				<li>Navigation controls</li>
+				<li>Roll-up button (for multi level exploration)</li>
+			</ol>
+		</div>
+
+		<div class="section">
+			<h2 id="ancre2">Graph Manipulation <span><a href="graph_help.html">&#x25B2;</a></span></h2>
+			<p>Once the graph is displayed, it can be manipulated with common interactions:
+				<ul>
+					<li><b>Pan</b>: left-clic on the canvas background and drag.</li> 
+					<li><b>Zoom</b>: use the mouse wheel on the graph canavs to (de)zoom.</li>
+					<li><b>Hover node</b>: use the mouse to hover over a node. <br/>It will display the label of the node and a larger thumbnail of the node representative on the bottom-right of the canvas.</li>
+					<li><b>Hover edge</b>: use the mouse to hover over an edge. <br/>It will became black and display the label of the node. <br/>In the NASA APoD data set, the label correspond to the distance between two image in terms of color.</li>
+					<li><b>Select node</b>: left-clic on a node to select it. <br/>Its information will appear on the right panel. <br/>A zoom will occur to focus on the selected node. <br/>A black border will appear on the selected node, and its neighbours will be highlighted with a halo around them.</li>
+					<li><b>Unfocus</b>: left-clicl on the graph canvas background (without dragging).</li>
+				</ul>
+		</div>
+
+		<div class="section">
+			<h2 id="ancre3">Graph Controls <span><a href="graph_help.html">&#x25B2;</a></span></h2>
+			<img class="centerImage reduceImage_35" src="images/help/controls.png" alt="Graph manipulation controls"></img>
+			<p>Using the graph controls, one can:
+
+			<table>
+				<tr>
+					<td> <img class="button" src="images/reset_red.png" alt="Reset button" /> </td>
+					<td> Reset the graph. The default view is then displayed.</td>
+				</tr>
+				<tr>
+					<td> <img class="button-left" src="images/hide_edges_red.png" alt="Hide edges button" />
+						 <img class="button" src="images/show_edges_red.png" alt="Show edges button" /> </td>
+					<td> Show/Hide edges. Edges are displayed by default. </td>
+				</tr>
+				<tr>
+					<td> <img class="button-left" src="images/hide_image_red.png" alt="Show/hide images button" />
+						 <img class="button" src="images/show_image_red.png" alt="Show/hide images button" /> </td>
+					<td> Show/Hide nodes as images/plain disk. In case of internal node, the first representative is displayed. </td>
+				</tr>
+				<tr>
+					<td> <img class="button" src="images/layout_red.png" alt="Layout button" /></td>
+					<td> Layout graph the graph using a force-directed drawing algorithm. </td>
+				</tr>
+				<tr>
+					<td> <img class="button" src="images/help_red.png" alt="Help button" /></td>
+					<td> Diplay the help page. </td>
+				</tr>
+				<tr>
+					<td> <img class="button-slider" src="images/help/slider.png" alt="Slider" /></td>
+					<td> Change the size of the nodes. </td>
+				</tr>					
+			</table>
+		</div>
+		</div>
+		
+		<div class="section">
+			<h2 id="ancre4">Collection Navigation <span><a href="graph_help.html">&#x25B2;</a></span></h2>
+
+			<p>There are three ways to navigate through the graph, and thus explore the image collection.</p> 
+
+			<h4>1. Navigating in the graph canvas</h4>
+			<p> One can simply navigate in the graph drawn in the canvas by clicking its nodes of interest.</p>
+
+			<h4>2. Navigating using neighbours list</h4>
+			<img class="centerImage reduceImage_15" src="images/help/neighbours.png" alt="Navigation controls navigation"></img>	
+			<p>When a node is selected, its informations are displayed on the information panel. The panel contains the neighbours of the node.</p>
+			<p>The list of neighbours allows one to go from the current node image to another which is similar.</p>
+			<p>Hence, one can navigate in the collection from image to image.</p>
+
+
+			<h4>3. Navigating using the log</h4>
+			<img class="centerImage reduceImage_15" src="images/help/log.png" alt="Neighbours navigation"></img>
+			<p>Each node visited is kept in a navigation logfile. The logfile can be found in the "Navigation log" tab.</p>
+			<p>One can use this logfile to go back to an already visited node clicking on it on the tab.</p>
+
+			<img class="centerImage reduceImage_35" src="images/help/navigation.png" alt="Neighbours navigation"></img>
+			<p>One can also use the navigation control buttons:
+				<table>
+					<tr>
+						<td> <img class="button" src="images/first_red.png" alt="First button" /></td>
+						<td> Go back to the first selected node in the navigation log.</td>
+					</tr>
+					<tr>
+						<td> <img class="button" src="images/pervious_red.png" alt="Previous button" /></td>
+						<td> Go back to the previous node in the navigation log. </td>
+					</tr>
+					<tr>
+						<td> <img class="button" src="images/next_red.png" alt="Next button" /></td>
+						<td> Go to the next node in the navigation log. </td>
+					</tr>
+					<tr>
+						<td> <img class="button" src="images/last_red.png" alt="Last button" /></td>
+						<td> Go to the last selected node in the navigation log. </td>
+					</tr>
+					<tr>
+						<td> <img class="button" src="images/last_selected_red.png" alt="Last selected button" /></td>
+						<td> Go to the last selected node (can be useful after unfocusing) </td>
+					</tr>				
+				</table>
+			</p>
+		</div>
+		
+		<div class="section">
+			<h2 id="ancre5">Multi-level Exploration <span><a href="graph_help.html">&#x25B2;</a></span></h2>
+			<img class="centerImage reduceImage_25" src="images/help/representatives.png" alt="Neighbours navigation"></img>
+			<p>In order to navigate within large collection efficiently, it has been structured in a hybrid hierarchical and graph structure.</p>
+			<p>Internal nodes of the hierarchical structure contains a sub-graph. </p>
+			<p>When flew over, seven neareast and seven farthest representatives are displayed in the information panel.</p>
+			<p>The nearest representatives correspond to the most representatives images contained within the sub-graph; the farthest, to images in the sub-graph that can be considered as outliers. </p>
+			<p>Internal nodes are displayed as circles nodes while images nodes are displayed as squares.</p>
+
+			<p>Left-click on an internal node to go down a level and display the sub-graph inside. </p>
+			<p>You can go down until you arrive on a sub-graph containing image nodes. </p>
+			<p>One can then go up by using the Roll-up button. <img class="button" src="images/roll_up_red.png" alt="Roll up button" /></p>
+		</div>
+		
+		<div class="section">
+			<h2 id="ancre6">About <span><a href="help.html">&#x25B2;</a></span></h2>
+			<div id="logos">
+				<a href="http://www.univ-tours.fr/" target="_blank"><img class="logo" src="images/help/logoUnivTours.jpg" alt="Tours university logo"/></a>
+				<a href="http://li.univ-tours.fr/" target="_blank"><img class="logo" src="images/help/logo_LI.jpg" alt="Computer Science lab logo"/></a>
+				<a href="http://www.rfai.li.univ-tours.fr/" target="_blank"><img class="logo" src="images/help/logo_RFAI.jpg" alt="RFAI team logo"/></a>
+			</div>
+			<p>The APoD eXplorer platform has been developed by <a href="http://frederic.rayar.free.fr/" target="_blank">Fr&eacute;d&eacute;ric RAYAR</a> in the context of his PhD. <a href="mailto:frederic.rayar@univ-tours.fr">(frederic.rayar {at} univ-tours {dot} fr)</a></p>
+			<p>The PhD takes place in the Computer Science Laboratory of Tours (University Fran&ccedil;ois-Rabelais of Tours), under the supervision of Dr. Sabine Barrat, Dr. Fatma Bouali and Pr. Gilles Venturini.</p>
+			<p>The PhD endeavour work focus on jointly study the indexing and the visualisation for browsing large dynamic image collections, under the following constraints:
+				<ul>
+					<li><i>handling medium to large image collections</i>: the challenge is to handle real world data sets that can contains thousands to millions of images;</li>
+					<li><i>handling dynamic image collections: as images keep</i> flooding in a continuous way, it becomes mandatory to build structure in a dynamic way: images shall be either added or edited if needed;</li>
+					<li><i>providing interactive visualisations</i>: relevant visualisations - that are easy to interpret by the user - must be combined to interactions to allow the user to wander around the collection and make discoveries</li>
+				</ul>	
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html ng-app="graphApp">
+	<head>
+		<meta charset="ISO-8859-1">
+		
+		<!-- Title -->
+		<title>APOD eXplorer - Archive Graph</title>
+		
+		<!-- Style sheet -->
+		<link href="style/graph.css" rel="stylesheet" />
+		
+		<!-- AngularJS library -->
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+		
+		<!-- Linkurious (Sigma.js) source -->
+		<script src="script/linkurious.js/src/sigma.core.js"></script>
+		<script src="script/linkurious.js/src/conrad.js"></script>
+		<script src="script/linkurious.js/src/utils/sigma.utils.js"></script>
+		<script src="script/linkurious.js/src/utils/sigma.polyfills.js"></script>
+		<script src="script/linkurious.js/src/sigma.settings.js"></script>
+		<script src="script/linkurious.js/src/classes/sigma.classes.dispatcher.js"></script>
+		<script src="script/linkurious.js/src/classes/sigma.classes.configurable.js"></script>
+		<script src="script/linkurious.js/src/classes/sigma.classes.graph.js"></script>
+		<script src="script/linkurious.js/src/classes/sigma.classes.camera.js"></script>
+		<script src="script/linkurious.js/src/classes/sigma.classes.quad.js"></script>
+		<script src="script/linkurious.js/src/captors/sigma.captors.mouse.js"></script>
+		<script src="script/linkurious.js/src/captors/sigma.captors.touch.js"></script>
+		<script src="script/linkurious.js/src/renderers/sigma.renderers.canvas.js"></script>
+		<script src="script/linkurious.js/src/renderers/sigma.renderers.webgl.js"></script>
+		<script src="script/linkurious.js/src/renderers/sigma.renderers.svg.js"></script>
+		<script src="script/linkurious.js/src/renderers/sigma.renderers.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/webgl/sigma.webgl.nodes.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/webgl/sigma.webgl.nodes.fast.js"></script>
+		<script src="script/linkurious.js/src/renderers/webgl/sigma.webgl.edges.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/webgl/sigma.webgl.edges.fast.js"></script>
+		<script src="script/linkurious.js/src/renderers/webgl/sigma.webgl.edges.arrow.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.labels.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.hovers.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.nodes.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.edges.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.edges.curve.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.edges.arrow.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.edges.curvedArrow.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.edgehovers.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.edgehovers.curve.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.edgehovers.arrow.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.edgehovers.curvedArrow.js"></script>
+		<script src="script/linkurious.js/src/renderers/canvas/sigma.canvas.extremities.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/svg/sigma.svg.utils.js"></script>
+		<script src="script/linkurious.js/src/renderers/svg/sigma.svg.nodes.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/svg/sigma.svg.edges.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/svg/sigma.svg.edges.curve.js"></script>
+		<script src="script/linkurious.js/src/renderers/svg/sigma.svg.labels.def.js"></script>
+		<script src="script/linkurious.js/src/renderers/svg/sigma.svg.hovers.def.js"></script>
+		<script src="script/linkurious.js/src/middlewares/sigma.middlewares.rescale.js"></script>
+		<script src="script/linkurious.js/src/middlewares/sigma.middlewares.copy.js"></script>
+		<script src="script/linkurious.js/src/misc/sigma.misc.animation.js"></script>
+		<script src="script/linkurious.js/src/misc/sigma.misc.bindEvents.js"></script>
+		<script src="script/linkurious.js/src/misc/sigma.misc.bindDOMEvents.js"></script>
+		<script src="script/linkurious.js/src/misc/sigma.misc.drawHovers.js"></script>
+		
+		<!-- Linkurious (Sigma.js) plugins -->
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/settings.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.edgehovers.arrow.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.edgehovers.curve.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.edgehovers.curvedArrow.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.edgehovers.def.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.edges.arrow.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.edges.autoCurve.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.edges.curve.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.edges.curvedArrow.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.edges.def.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.extremities.def.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.hovers.def.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.labels.def.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.nodes.cross.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.nodes.def.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.nodes.diamond.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.nodes.equilateral.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.nodes.square.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/canvas/sigma.canvas.nodes.star.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/webgl/sigma.webgl.nodes.def.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/webgl/sigma.webgl.nodes.fast.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/webgl/sigma.webgl.edges.def.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/webgl/sigma.webgl.edges.fast.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.linkurious/webgl/sigma.webgl.edges.arrow.js"></script>
+		<!-- edges hover -->
+		<script src="script/linkurious.js/plugins/sigma.renderers.edgeLabels/settings.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.def.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curve.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curvedArrow.js"></script>
+		<!-- layout -->
+		<script src="script/linkurious.js/plugins/sigma.plugins.animate/sigma.plugins.animate.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.layouts.forceAtlas2/worker.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.layouts.forceAtlas2/supervisor.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.layouts.fruchtermanReingold/sigma.layout.fruchtermanReingold.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.pathfinding.astar/sigma.pathfinding.astar.js"></script>
+        <script src="script/linkurious.js/plugins/sigma.layouts.stressMajorization/sigma.layout.stressMajorization.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.layouts.maxentStress/sigma.layout.maxentStress.js"></script>		
+		<script src="script/linkurious.js/plugins/sigma.layouts.forceLink/worker.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.layouts.forceLink/supervisor.js"></script>
+		<!-- interaction -->
+		<script src="script/linkurious.js/plugins/sigma.helpers.graph/sigma.helpers.graph.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.plugins.keyboard/sigma.plugins.keyboard.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.plugins.activeState/sigma.plugins.activeState.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.plugins.select/sigma.plugins.select.js"></script>
+		<!-- halo -->
+		<script src="script/linkurious.js/plugins/sigma.renderers.halo/settings.js"></script>
+		<script src="script/linkurious.js/plugins/sigma.renderers.halo/sigma.renderers.halo.js"></script>		
+
+
+		<!-- Controller file -->
+		<script src="script/graphController.js"></script>
+		
+		<!-- Services files -->
+		<script src="script/utils.js"></script>
+		<script src="script/importer.js"></script>
+		<script src="script/neighbourhood.js"></script>
+		<script src="script/exporter.js"></script>
+		<script src="script/representative.js"></script>
+		<script src="script/treemap.js"></script>
+		<script src="script/treemap_module.js"></script>
+		<script src="script/breadcrumb.js"></script>
+		<script src="script/breadcrumb_module.js"></script>
+	</head>
+
+
+	<body ng-controller="GraphController">
+		
+
+
+			<!-- Main part of the page -->
+
+			<div id="wholePanel">
+				<!-- Informations list -->
+				<div id="infobox">
+
+					<!-- Navigation buttons -->
+					<div id="navButtons">
+						<button class="buttonStyle" id="goToFirst" ng-click="goToFirst()" title="Go to first"><img class="buttonImage" src="images/first_red.png" /></button>
+						<button class="buttonStyle" id="previous" ng-click="previousNode()" title="Previous"><img class="buttonImage" src="images/pervious_red.png" /></button>
+						<button class="buttonStyle" id="next" ng-click="nextNode()" title="Next"><img class="buttonImage" src="images/next_red.png" /></button>
+						<button class="buttonStyle" id="goToLast" ng-click="goToLast()" title="Go to last"><img class="buttonImage" src="images/last_red.png" /></button>
+						<button class="buttonStyle" id="backToLastSelected" ng-click="backToLastSelected()" title="Last selected"><img class="buttonImage" src="images/last_selected_red.png" /></button>
+					</div>
+
+					<!-- Node informations -->
+					<div id="tabView">
+						<div id="tabs">
+							<button id="nodeTab" class="tab selectedTab" ng-click="changeTab(&quot;nodeTab&quot;)" title="Current node">
+								<img class="buttonImage" src="images/current_node_red.png" />
+							</button>
+							<button id="nearRepresentativeTab" class="tab nonSelectedTab" ng-click="changeTab(&quot;nearRepresentativeTab&quot;)" title="Representatives">
+								<img class="buttonImage" src="images/representatives_nearest.png" />
+							</button>
+							<button id="farRepresentativeTab" class="tab nonSelectedTab" ng-click="changeTab(&quot;farRepresentativeTab&quot;)" title="Outliers">
+								<img class="buttonImage" src="images/representatives_farthest.png" />
+							</button>
+							<button id="logTab" class="tab nonSelectedTab" ng-click="changeTab(&quot;logTab&quot;)" title="Navigation Log">
+								<img class="buttonImage" src="images/log_red.png" />
+							</button>
+						</div>
+						<div id="tabsContent">
+							<div id="nodeTabContent" class="tabContent selectedContent">
+								<p id="selectedNode">Click on a node to show its data</p>
+								<div id="nodesInfo" hidden="true">
+									<div id="selectedImage"></div>
+									<ul> 
+										<li id="date"></li>
+										<li id="title"></li>
+									</ul>
+									<div id="subgraphDetails"></div>
+									<div id="neighbours">Neighbours:<ul id="neighboursList"></ul></div>
+								</div>
+							</div>
+							<div id="logTabContent" class="tabContent nonSelectedContent">
+								<p>Empty logfile</p>
+							</div>
+							<!-- FRED HACK : Representatives as pseudo treemap -->
+							<div id="nearRepresentativeTabContent" class="tabContent nonSelectedContent">
+								<canvas id="nearRepTreemap" width="200" height="200"></canvas>	
+								<p>Most representatives images <br/>of the super-node.</p>					
+							</div>
+							<div id="farRepresentativeTabContent" class="tabContent nonSelectedContent">
+								<canvas id="farRepTreemap" width="200" height="200"></canvas>	
+								<p>Less representatives images <br/>of the super-node.</p>					
+							</div>
+						</div>
+					</div>
+
+
+					<!-- Controls buttons -->
+					<div id="controls">
+						<!-- Reset button -->
+						<button class="buttonStyle" id="reset" ng-click="goToRoot()" title="Reset"><img class="buttonImage" src="images/reset_red.png" /></button>
+						<!-- Layout button -->
+						<button class="buttonStyle" id="showHideEdges" ng-click="showHideEdges()" title="Show/Hide edges"><img id="showHideEdgesImage" class="buttonImage" src="images/hide_edges_red.png" /></button>
+						<!-- Show/Hide edges button -->
+						<button class="buttonStyle" id="showHideImages" ng-click="showHideImages()" title="Show/Hide images"><img id="showHideImagesImage" class="buttonImage" src="images/hide_image_red.png"/></button>
+						<!-- Show/Hide images button -->
+						<button class="buttonStyle" id="smLayout" ng-click="smLayout()" title="Layout graph"><img class="buttonImage" src="images/layout_red.png" /></button>
+						<!-- Help button -->
+						<button class="buttonStyle" id="helpButton" ng-click="help()" title="Help"><img class="buttonImage" src="images/help_red.png" /></button>
+
+						<br/>
+
+						<!-- Node size slider -->
+						<!-- http://demosthenes.info/blog/757/Playing-With-The-HTML5-range-Slider-Input -->
+						<!-- CSS: https://css-tricks.com/value-bubbles-for-range-inputs/ -->
+						<label for="nodeSizeSlider">Node Size</label>
+						<input id="nodeSizeSlider" type="range" min="1" max="5" step="1" value="1" ng-model="data.sizevalue" ng-change="changeNodeSize()"/>
+						<output id="nodeSize">1</output>
+					</div>
+				</div>
+
+
+			
+
+			
+			<!-- Graph area -->
+			<div id="graph-container">
+				<!-- Breadcrumb -->
+				<div id="breadcrumb-div">
+					<canvas id="breadcrumb" href="#">Racine</canvas>
+				</div>
+				<!-- Graph -->
+				<div id="graph"></div>
+				<!-- Roll-up/Drill-down button -->
+				<button id="rollUp" ng-click="rollUp(-1, false)"  title="Roll Up"><img class="buttonImage" src="images/roll_up_red.png" /></button>
+				<!-- div that will host the current node thumbnail -->
+				<div id="currentNode"></div>
+			</div>
+		</div>
+	</body>
+</html>

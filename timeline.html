@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>APOD eXplorer - Archive Timeline</title>
+    <meta charset="utf-8">
+    <meta name="description" content="APOD eXplorer - Archive Timeline">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!-- CSS-->
+    <link rel="stylesheet" href="./script/timeline.js/css/timeline.css?v1">
+    <link rel="stylesheet" href="./style/timeline.css">
+    <!--FONT-->
+    <link rel="stylesheet" href="./script/timeline.js/css/fonts/font.default.css?v1">
+    <!-- Style-->
+    <style>
+      html, body {
+      	height:100%;
+      	width:100%;
+      	padding: 0px;
+      	margin: 0px;
+      }
+      .tl-timeline {
+      
+      }
+      
+    </style>
+    <!-- HTML5 shim, for IE6-8 support of HTML elements-->
+    <!--if lt IE 9
+    script(src='https://html5shim.googlecode.com/svn/trunk/html5.js')
+    
+    -->
+  </head>
+  <body>
+  
+    <div id="wholePanel">
+      <!-- Year selector -->
+      <div id="yearSelector">
+      	<h2> Select a year: </h2>
+        <ul id="yearList">
+          <li><a id="1996" href="#">1996</a></li>
+          <li><a id="1997" href="#">1997</a></li>
+          <li><a id="1998" href="#">1998</a></li>
+          <li><a id="1999" href="#">1999</a></li>
+          <li><a id="2000" href="#">2000</a></li>
+          <li><a id="2001" href="#">2001</a></li>
+          <li><a id="2002" href="#">2002</a></li>
+          <li><a id="2003" href="#">2003</a></li>
+          <li><a id="2004" href="#">2004</a></li>
+          <li><a id="2005" href="#">2005</a></li>
+          <li><a id="2006" href="#">2006</a></li>
+          <li><a id="2007" href="#">2007</a></li>
+          <li><a id="2008" href="#">2008</a></li>
+          <li><a id="2009" href="#">2009</a></li>
+          <li><a id="2010" href="#">2010</a></li>
+          <li><a id="2011" href="#">2011</a></li>
+          <li><a id="2012" href="#">2012</a></li>
+          <li><a id="2013" href="#">2013</a></li>
+          <li><a id="2014" href="#">2014</a></li>
+          <li><a id="2015" href="#">2015</a></li>
+        </ul>
+      </div>
+    	
+    	<!-- Timeline -->
+      <div id="apod_timeline"></div>
+    </div>
+    	
+    	
+    <!-- JavaScript-->
+    <script src="./script/timeline.js/js/timeline.js"></script>
+    <script>
+      // Add on click listener on li elements
+      var years = document.getElementById('yearList').getElementsByTagName('a');
+      for (var i=0; i<years.length; i++)
+        years[i].addEventListener('click', function(e) { Timeline(e.target.id); } , false);
+
+
+      /** Function that create a timeline object **/
+      function Timeline(year) {
+    	
+        // Clean timeline
+       document.getElementById('apod_timeline').innerHTML = "";
+
+    		// Create timeline
+    		timeline = new TL.Timeline('apod_timeline', './data/nasa_apod_' + year + '.json', {
+    			optimal_tick_width: 100,		       // optimal distance (in pixels) between ticks on axis
+    			timenav_height_percentage: 35,	  // Specify the timeline nav height as a percentage of the screen instead of in pixels. Overrides timenav_height. Default 25.
+    			//initial_zoom: 3					       // The position in the zoom_sequence series used to scale the Timeline when it is first created. Takes precedence over scale_factor. zoom_sequence	[0.5, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    		});
+    		
+    		// Delete timeline object
+    		delete timeline;
+      }
+    </script>
+	
+  </body>
+</html>
